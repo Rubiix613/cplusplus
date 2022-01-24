@@ -9,8 +9,36 @@
 
 using namespace std;
 
+class Vehicle {
+    private:
+    int _w, _d;
+    
+    public:
+    Vehicle(int w, int d) {
+        _w = w;
+        _d = d;
+        cout << "In constructor with 2 parameters" << endl;
+    }
+    Vehicle(int w) {
+        _w = w;
+        cout << "In constructor with 1 parameters, w = " << w << endl;
+    }
+    Vehicle() {
+        cout << "In constructor with 0 parameters" << endl;
+    }
+    ~Vehicle() {
+        cout << "In destructor" << endl;
+    }
+    
+    
+};
+
 int main(int argc, const char * argv[]) {
     // insert code here...
-    cout << "This is the second commit!\n";
+    cout << "Demo #1\n";
+    
+    Vehicle v1;
+    
+    cout << "Vehicle has been created\n";
     return 0;
 }
