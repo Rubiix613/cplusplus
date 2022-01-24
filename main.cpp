@@ -11,6 +11,6 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    cout << "This is the initial commit!\n";
+    cout << "This is the second commit!\n";
     return 0;
 }
