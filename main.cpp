@@ -35,9 +35,9 @@ class Vehicle {
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    cout << "Demo #2\n";
+    cout << "Demo #3\n";
     
-    Vehicle v1(4);
+    Vehicle v1(4, 2);
     
     cout << "Vehicle has been created\n";
     return 0;
