@@ -33,17 +33,46 @@ class Vehicle {
     
 };
 
+int getInt(string type) {
+    
+    bool valid = false;
+    char input[128];
+    int i = 0;
+
+    while(!valid) {
+        cout << "Enter number of " << type << ": " << endl;
+        cin >> input;
+        
+        string temp = input;
+        i = atoi(temp.c_str());
+        
+        if ( i == 0 ) {
+            cout << "Invalid input! (Not an integer)" << endl;
+        } else if (i < 0) {
+            cout << "Invalid input! (Not a positive value)" << endl;
+        } else {
+            valid = true;
+        }
+        
+    }
+    cin.clear();
+    return i;
+}
+
 int main(int argc, const char * argv[]) {
     // insert code here...
-    cout << "Demo #4\n";
+    cout << "Demo #5\n";
+    int door, wheel;
     
-    Vehicle v1;
-    Vehicle v2(4);
-    Vehicle v3(4, 2);
+    Vehicle *pVehicle;
     
-    cout << "Vehicle 1 takes " << sizeof(v1) << endl;
-    cout << "Vehicle 2 takes " << sizeof(v2) << endl;
-    cout << "Vehicle 3 takes " << sizeof(v3) << endl;
+    door =  getInt("doors");
+    
+    wheel = getInt("wheels");
+    
+    cout << "You entered: " << door << ", " << wheel << endl;
+    
+    pVehicle = new Vehicle(door, wheel);
     
     cout << "Vehicle has been created\n";
     return 0;
