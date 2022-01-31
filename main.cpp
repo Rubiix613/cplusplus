@@ -33,17 +33,31 @@ class Vehicle {
     
 };
 
+Vehicle veh1;
+Vehicle veh2(4);
+Vehicle veh3(4, 2);
+
 int getInt(string type) {
     
     bool valid = false;
     char input[128];
     int i = 0;
+    string quit = "q";
 
     while(!valid) {
-        cout << "Enter number of " << type << ": " << endl;
+        cout << "Enter number of " << type << "\n>";
         cin >> input;
         
         string temp = input;
+        
+        if (input == quit) {
+            veh1.~Vehicle();
+            veh2.~Vehicle();
+            veh3.~Vehicle();
+            cout << "Quitting program..." << endl;
+            exit(0);
+        }
+        
         i = atoi(temp.c_str());
         
         if ( i == 0 ) {
@@ -59,22 +73,30 @@ int getInt(string type) {
     return i;
 }
 
+
 int main(int argc, const char * argv[]) {
     // insert code here...
-    cout << "Demo #5\n";
-    int door, wheel;
+    cout << "Demo #6\n";
     
-    Vehicle *pVehicle;
+    bool programRunning = true;
     
-    door =  getInt("doors");
-    
-    wheel = getInt("wheels");
-    
-    cout << "You entered: " << door << ", " << wheel << endl;
-    
-    pVehicle = new Vehicle(door, wheel);
-    
-    cout << "Vehicle has been created\n";
+    while (programRunning) {
+        int door, wheel;
+        
+        Vehicle *pVehicle;
+        
+        cout << "- CREATE NEW VEHICLE | [q] to quit -" << endl;
+        
+        door =  getInt("doors");
+        
+        wheel = getInt("wheels");
+        
+        cout << "You entered: " << door << ", " << wheel << "\n" << endl;
+        
+        pVehicle = new Vehicle(door, wheel);
+        
+        cout << "Vehicle has been created\n\n";
+    }
     return 0;
 }
 
