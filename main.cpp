@@ -19,11 +19,10 @@ class Vehicle {
         _d = d;
         cout << "In constructor with 2 parameters" << endl;
     }
-    Vehicle(int w) {
-        _w = w;
+    Vehicle(int w) : Vehicle(0, 0) {
         cout << "In constructor with 1 parameters, w = " << w << endl;
     }
-    Vehicle() {
+    Vehicle() : Vehicle(0) {
         cout << "In constructor with 0 parameters" << endl;
     }
     ~Vehicle() {
@@ -51,9 +50,6 @@ int getInt(string type) {
         string temp = input;
         
         if (input == quit) {
-            veh1.~Vehicle();
-            veh2.~Vehicle();
-            veh3.~Vehicle();
             cout << "Quitting program..." << endl;
             exit(0);
         }
@@ -76,7 +72,7 @@ int getInt(string type) {
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    cout << "Demo #6\n";
+    cout << "Corrected Demo\n";
     
     bool programRunning = true;
     
@@ -94,6 +90,8 @@ int main(int argc, const char * argv[]) {
         cout << "You entered: " << door << ", " << wheel << "\n" << endl;
         
         pVehicle = new Vehicle(door, wheel);
+        
+        delete(pVehicle);
         
         cout << "Vehicle has been created\n\n";
     }
