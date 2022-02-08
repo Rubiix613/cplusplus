@@ -15,6 +15,7 @@ void CreateVehicle(Vehicle &v, int w = 10, int d = 8) {
 }
 
 int main(int argc, const char * argv[]) {
+    
     Vehicle original ; //empty constructor no ( )
     Vehicle copy(original); // copy constructor by reference
     Vehicle secondCopy( &original ); //copy constructor by pointer
