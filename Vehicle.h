@@ -19,6 +19,9 @@ public:
     int getW();
     int getD();
     
+    void setW(int w);
+    void setD(int d);
+    
     Vehicle();
 
     Vehicle(int w);
@@ -41,15 +44,15 @@ public:
     void operator=(Vehicle&);
     
     //overload comparison operator
-    void operator==(Vehicle&);
+    bool operator==(Vehicle&);
     
     //overload postfix inc and dec
-    void operator++(int);
-    void operator--(int);
+    Vehicle operator++(int);
+    Vehicle operator--(int);
     
     //overload prefix inc and dec
-    void operator++();
-    void operator--();
+    Vehicle operator++();
+    Vehicle operator--();
     
 
 };
