@@ -15,6 +15,10 @@ private:
     int _w, _d;
 
 public:
+    
+    int getW();
+    int getD();
+    
     Vehicle();
 
     Vehicle(int w);
@@ -23,17 +27,30 @@ public:
     
     ~Vehicle();
     
-    void setWheels(int w);
-    int getWheels();
-    
-    void setDoors(int d);
-    int getDoors();
-    
     void printVehicle();
     
-    Vehicle (Vehicle &);
+    Vehicle(Vehicle &copy) {
+        _w = copy.getW();
+        _d = copy.getD();
     
-    Vehicle (Vehicle *);
+    }
+    
+    Vehicle(Vehicle *copy) : Vehicle(*copy) {}
+    
+    //overload assignment operator
+    void operator=(Vehicle&);
+    
+    //overload comparison operator
+    void operator==(Vehicle&);
+    
+    //overload postfix inc and dec
+    void operator++(int);
+    void operator--(int);
+    
+    //overload prefix inc and dec
+    void operator++();
+    void operator--();
+    
 
 };
 
