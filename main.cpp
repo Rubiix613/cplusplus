@@ -27,7 +27,8 @@ int main(int argc, const char * argv[]) {
     cout << "Compare equality 2: " << (--original == ++copy) << endl;
     //should be true:
     cout << "Compare inequality: " << (original != copy) << endl;
-    //This should make original = copy, and then return a Vehicle for output: cout << "Assignment operator: " << (original = copy) << endl;
+    //This should make original = copy, and then return a Vehicle for output:
+    cout << "Assignment operator: " << (original = copy) << endl;
     return 0;
     
     

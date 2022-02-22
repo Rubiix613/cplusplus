@@ -27,19 +27,19 @@ void Vehicle::setW(int w) {
 Vehicle::Vehicle(int w, int d) {
     _w = w;
     _d = d;
-    cout << "In constructor with 2 parameters" << endl;
+    //cout << "In constructor with 2 parameters" << endl;
 }
 
-Vehicle::Vehicle(int w) : Vehicle(w, 0) {
-    cout << "In constructor with 1 parameters, w = " << w << endl;
+Vehicle::Vehicle(int w) : Vehicle(w, 8) {
+    //cout << "In constructor with 1 parameters, w = " << w << endl;
 }
 
-Vehicle::Vehicle() : Vehicle(0) {
-    cout << "In constructor with 0 parameters" << endl;
+Vehicle::Vehicle() : Vehicle(8) {
+    //cout << "In constructor with 0 parameters" << endl;
 }
 
 Vehicle::~Vehicle() {
-    cout << "In destructor" << endl;
+    //cout << "In destructor" << endl;
 }
 
 void Vehicle::printVehicle() {
@@ -47,14 +47,19 @@ void Vehicle::printVehicle() {
 }
 
 //overload assignment operator
-void Vehicle::operator=(Vehicle& v) {
-    _d = v.getD();
-    _w = v.getW();
+Vehicle Vehicle::operator=(const Vehicle& v) {
+    _d = v._d;
+    _w = v._w;
+    return *this;
 }
 
 //overload comparison operator
-bool Vehicle::operator==(Vehicle& v) {
-    return (_d == v.getD() && _w == v.getW());
+bool Vehicle::operator==(const Vehicle& v) {
+    return (_d == v._d && _w == v._w);
+}
+
+bool Vehicle::operator!=(const Vehicle& v) {
+    return (_d != v._d && _w != v._w);
 }
 
 //overload postfix dec
@@ -73,18 +78,23 @@ Vehicle Vehicle::operator++() {
 
 //overload prefix dec
 Vehicle Vehicle::operator--(int) {
+    Vehicle v(*this);
     _w--;
     _d--;
-    return *this;
+    return v;
 }
 
 //overload prefix inc
 Vehicle Vehicle::operator++(int) {
+    Vehicle v(*this);
     _w++;
     _d++;
-    return *this;
+    return v;
 }
 
+ostream& operator << (ostream&, const Vehicle& v) {
+    return cout << "VEHICLE: Wheels " << v._w << " | Doors " << v._d << endl;
+}
 
 
 

@@ -10,6 +10,8 @@
 #include <stdio.h>
 #include <iostream>
 
+using namespace std;
+
 class Vehicle {
 private:
     int _w, _d;
@@ -40,11 +42,18 @@ public:
     
     Vehicle(Vehicle *copy) : Vehicle(*copy) {}
     
-    //overload assignment operator
-    void operator=(Vehicle&);
+    //Vehicle (Vehicle &);
     
-    //overload comparison operator
-    bool operator==(Vehicle&);
+    //Vehicle (Vehicle *);
+    
+    //overload assignment operator
+    Vehicle operator=(const Vehicle& v);
+    
+    //overload comparison operator equal
+    bool operator==(const Vehicle& v);
+    
+    //overload comparison operator not equal
+    bool operator!=(const Vehicle& v);
     
     //overload postfix inc and dec
     Vehicle operator++(int);
@@ -54,7 +63,8 @@ public:
     Vehicle operator++();
     Vehicle operator--();
     
-
+    friend ostream& operator << (ostream&, const Vehicle& v);
+    
 };
 
 
