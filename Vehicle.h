@@ -18,6 +18,8 @@ private:
 
 public:
     
+    float engineEffeciency;
+    
     int getW();
     int getD();
     
@@ -65,8 +67,54 @@ public:
     
     friend ostream& operator << (ostream&, const Vehicle& v);
     
+    virtual float calculateRange();
+    
+    virtual float percentEnergyRemaining();
+    
+    virtual void drive(float km);
+    
 };
 
+class ElectricVehicle : public Vehicle {
+private:
+    int currentCharge, maxCharge;
+    
+public:
+    ElectricVehicle();
+    
+    ~ElectricVehicle();
+    
+    float calculateRange();
+        
+    float percentEnergyRemaining();
+        
+    void drive(float km);
+    
+    
+};
+
+class GasolineVehicle : public Vehicle {
+private:
+    int currentGasoline, maxGasoline;
+    
+public:
+    GasolineVehicle() {}
+    
+    ~GasolineVehicle() {}
+    
+    
+};
+
+class HybridVehicle : public ElectricVehicle, public GasolineVehicle {
+private:
+    
+public:
+    HybridVehicle() {}
+    
+    ~HybridVehicle() {}
+    
+    
+};
 
 #ifndef Vehicle_h
 #define Vehicle_h
