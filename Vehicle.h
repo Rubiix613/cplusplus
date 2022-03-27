@@ -32,7 +32,7 @@ public:
 
     Vehicle(int w, int d);
     
-    ~Vehicle();
+    virtual ~Vehicle();
     
     void printVehicle();
     
@@ -49,72 +49,32 @@ public:
     //Vehicle (Vehicle *);
     
     //overload assignment operator
-    Vehicle operator=(const Vehicle& v);
+    //Vehicle operator=(const Vehicle& v);
     
     //overload comparison operator equal
-    bool operator==(const Vehicle& v);
+    //bool operator==(const Vehicle& v);
     
     //overload comparison operator not equal
-    bool operator!=(const Vehicle& v);
+    //bool operator!=(const Vehicle& v);
     
     //overload postfix inc and dec
-    Vehicle operator++(int);
-    Vehicle operator--(int);
+    //Vehicle operator++(int);
+    //Vehicle operator--(int);
     
     //overload prefix inc and dec
-    Vehicle operator++();
-    Vehicle operator--();
+    //Vehicle operator++();
+    //Vehicle operator--();
     
-    friend ostream& operator << (ostream&, const Vehicle& v);
+    //friend ostream& operator << (ostream&, const Vehicle& v);
     
-    virtual float calculateRange();
+    virtual float calculateRange() = 0;
     
-    virtual float percentEnergyRemaining();
+    virtual float percentEnergyRemaining() = 0;
     
-    virtual void drive(float km);
-    
-};
-
-class ElectricVehicle : public Vehicle {
-private:
-    int currentCharge, maxCharge;
-    
-public:
-    ElectricVehicle();
-    
-    ~ElectricVehicle();
-    
-    float calculateRange();
-        
-    float percentEnergyRemaining();
-        
-    void drive(float km);
-    
+    virtual void drive(float km) = 0;
     
 };
 
-class GasolineVehicle : public Vehicle {
-private:
-    int currentGasoline, maxGasoline;
-    
-public:
-    GasolineVehicle() {}
-    
-    ~GasolineVehicle() {}
-    
-    
-};
-
-class HybridVehicle : public ElectricVehicle, public GasolineVehicle {
-private:
-    
-public:
-    HybridVehicle() {}
-    
-    ~HybridVehicle() {}
-    
-    
-};
 
 #ifndef Vehicle_h
 #define Vehicle_h

@@ -5,9 +5,14 @@
 //  Created by Adam Di Cioccio on 2022-03-24.
 //
 
-#include "Vehicle.h"
+#include "ElectricVehicle.h"
 
 using namespace std;
+
+ElectricVehicle::ElectricVehicle(float currentCharge, float engineEffeciency) {
+    this->currentCharge = currentCharge;
+    this->engineEffeciency = engineEffeciency;
+}
 
 ElectricVehicle::ElectricVehicle() {
     
@@ -26,7 +31,7 @@ float ElectricVehicle::percentEnergyRemaining() {
 }
     
 void ElectricVehicle::drive(float km) {
-        
+    currentCharge -= (km/100) * engineEffeciency;
 }
    
 

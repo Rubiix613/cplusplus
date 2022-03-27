@@ -46,55 +46,6 @@ void Vehicle::printVehicle() {
     cout << "VEHICLE: Wheels " << _w << " | Doors " << _d << endl;
 }
 
-//overload assignment operator
-Vehicle Vehicle::operator=(const Vehicle& v) {
-    _d = v._d;
-    _w = v._w;
-    return *this;
-}
-
-//overload comparison operator
-bool Vehicle::operator==(const Vehicle& v) {
-    return (_d == v._d && _w == v._w);
-}
-
-bool Vehicle::operator!=(const Vehicle& v) {
-    return (_d != v._d && _w != v._w);
-}
-
-//overload postfix dec
-Vehicle Vehicle::operator--() {
-    --_w;
-    --_d;
-    return *this;
-}
-
-//overload postfix inc
-Vehicle Vehicle::operator++() {
-    ++_w;
-    ++_d;
-    return *this;
-}
-
-//overload prefix dec
-Vehicle Vehicle::operator--(int) {
-    Vehicle v(*this);
-    _w--;
-    _d--;
-    return v;
-}
-
-//overload prefix inc
-Vehicle Vehicle::operator++(int) {
-    Vehicle v(*this);
-    _w++;
-    _d++;
-    return v;
-}
-
-ostream& operator << (ostream&, const Vehicle& v) {
-    return cout << "VEHICLE: Wheels " << v._w << " | Doors " << v._d << endl;
-}
 
     
 
