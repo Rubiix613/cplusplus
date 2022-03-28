@@ -13,11 +13,13 @@ private:
     
 public:
     float currentCharge;
-    float maxCharge = 125;
+    float maxCharge;
     
     ElectricVehicle(float currentCharge, float engineEffeciency) {
         this->currentCharge = currentCharge;
         this->engineEffeciency = engineEffeciency;
+        
+        this->maxCharge = currentCharge;
     }
 
     ElectricVehicle() {
@@ -33,7 +35,7 @@ public:
     }
         
     float percentEnergyRemaining() {
-        return currentCharge / (maxCharge * 100.0f);
+        return (currentCharge / maxCharge) * 100.0f;
     }
         
     void drive(float km) {

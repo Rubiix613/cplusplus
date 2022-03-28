@@ -11,7 +11,7 @@
 class HybridVehicle : public ElectricVehicle, public GasolineVehicle {
 private:
     float currentEnergy, electricEffeciency, gasEffeciency;
-    float maxEnergy = 120;
+    float maxEnergy;
     
 public:
     HybridVehicle(float currentGasoline, float gasEffeciency, float currentCharge, float electricEffeciency) {
@@ -22,6 +22,7 @@ public:
         this->electricEffeciency = electricEffeciency;
         
         this->currentEnergy = (currentGasoline+currentCharge);
+        this->maxEnergy = (currentGasoline+currentCharge);
     }
 
     HybridVehicle() {
@@ -37,7 +38,7 @@ public:
     }
         
     float percentEnergyRemaining() {
-        return currentEnergy / (maxEnergy * 100.0f);
+        return (currentEnergy / maxEnergy) * 100.0f;
     }
         
     void drive(float km) {

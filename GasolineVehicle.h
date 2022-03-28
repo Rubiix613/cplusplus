@@ -12,11 +12,12 @@ private:
     
 public:
     float currentGasoline;
-    float maxGasoline = 55;
+    float maxGasoline;
     
     GasolineVehicle(float currentGasoline, float engineEffeciency) {
         this->currentGasoline = currentGasoline;
         this->engineEffeciency = engineEffeciency;
+        this->maxGasoline = currentGasoline;
     }
 
     GasolineVehicle() {
@@ -32,7 +33,7 @@ public:
     }
         
     float percentEnergyRemaining() {
-        return currentGasoline / (maxGasoline * 100.0f);
+        return (currentGasoline / maxGasoline) * 100.0f;
     }
         
     void drive(float km) {
