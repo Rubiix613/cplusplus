@@ -9,30 +9,7 @@
 
 using namespace std;
 
-GasolineVehicle::GasolineVehicle(float currentGasoline, float engineEffeciency) {
-    this->currentGasoline = currentGasoline;
-    this->engineEffeciency = engineEffeciency;
-}
 
-GasolineVehicle::GasolineVehicle() {
-    
-}
-    
-GasolineVehicle::~GasolineVehicle() {
-    cout << "In Gasoline Vehicle Destructor" << endl;
-}
-    
-float GasolineVehicle::calculateRange() {
-    return (currentGasoline * 100) / engineEffeciency;
-}
-    
-float GasolineVehicle::percentEnergyRemaining() {
-    return currentGasoline / (maxGasoline * 100.0f);
-}
-    
-void GasolineVehicle::drive(float km) {
-    currentGasoline -= (km/100) * engineEffeciency;
-}
    
 
 

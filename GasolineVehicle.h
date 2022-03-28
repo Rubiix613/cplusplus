@@ -7,24 +7,37 @@
 
 #include "Vehicle.h"
 
-class GasolineVehicle : virtual public Vehicle {
+class GasolineVehicle : public Vehicle {
 private:
     
 public:
     float currentGasoline;
     float maxGasoline = 55;
     
-    GasolineVehicle(float currentGasoline, float engineEffeciency);
-    
-    GasolineVehicle();
-    
-    virtual ~GasolineVehicle();
-    
-    float calculateRange();
-    
-    float percentEnergyRemaining();
-    
-    void drive(float km);
+    GasolineVehicle(float currentGasoline, float engineEffeciency) {
+        this->currentGasoline = currentGasoline;
+        this->engineEffeciency = engineEffeciency;
+    }
+
+    GasolineVehicle() {
+        
+    }
+        
+    ~GasolineVehicle() {
+        cout << "In Gasoline Vehicle Destructor" << endl;
+    }
+        
+    float calculateRange() {
+        return (currentGasoline * 100) / engineEffeciency;
+    }
+        
+    float percentEnergyRemaining() {
+        return currentGasoline / (maxGasoline * 100.0f);
+    }
+        
+    void drive(float km) {
+        currentGasoline -= (km/100) * engineEffeciency;
+    }
 
     
 };

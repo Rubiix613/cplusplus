@@ -14,17 +14,32 @@ private:
     float maxEnergy = 120;
     
 public:
-    HybridVehicle(float currentGasoline, float gasEffeciency, float currentCharge, float electricEffeciency);
-    
-    HybridVehicle();
-    
-    virtual ~HybridVehicle();
-    
-    float calculateRange();
-    
-    float percentEnergyRemaining();
-    
-    void drive(float km);
+    HybridVehicle(float maxGasoline, float gasEffeciency, float maxCharge, float electricEffeciency) {
+        maxGasoline = maxGasoline;
+        gasEffeciency = gasEffeciency;
+        maxCharge = maxCharge;
+        electricEffeciency = electricEffeciency;
+    }
+
+    HybridVehicle() {
+        
+    }
+        
+    ~HybridVehicle() {
+        cout << "In Gasoline Vehicle Destructor" << endl;
+    }
+        
+    float calculateRange() {
+        return (currentEnergy * 100) / (gasEffeciency+electricEffeciency);
+    }
+        
+    float percentEnergyRemaining() {
+        return currentEnergy / (maxEnergy * 100);
+    }
+        
+    void drive(float km) {
+            
+    }
 
     
 };

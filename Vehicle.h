@@ -67,11 +67,11 @@ public:
     
     //friend ostream& operator << (ostream&, const Vehicle& v);
     
-    virtual float calculateRange() = 0;
+    //virtual float calculateRange() = 0;
     
-    virtual float percentEnergyRemaining() = 0;
+    //virtual float percentEnergyRemaining() = 0;
     
-    virtual void drive(float km) = 0;
+    //virtual void drive(float km) = 0;
     
 };
 

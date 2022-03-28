@@ -7,7 +7,7 @@
 
 #include "Vehicle.h"
 
-class ElectricVehicle : virtual public Vehicle {
+class ElectricVehicle : public Vehicle {
 private:
     
     
@@ -15,17 +15,30 @@ public:
     float currentCharge;
     float maxCharge = 125;
     
-    ElectricVehicle(float currentCharge, float engineEffeciency);
-    
-    ElectricVehicle();
-    
-    virtual ~ElectricVehicle();
-    
-    float calculateRange();
-    
-    float percentEnergyRemaining();
-    
-    void drive(float km);
+    ElectricVehicle(float currentCharge, float engineEffeciency) {
+        this->currentCharge = currentCharge;
+        this->engineEffeciency = engineEffeciency;
+    }
+
+    ElectricVehicle() {
+        
+    }
+        
+    ~ElectricVehicle() {
+        cout << "In Electric Vehicle Destructor" << endl;
+    }
+        
+    float calculateRange() {
+        return (currentCharge * 100) / engineEffeciency;
+    }
+        
+    float percentEnergyRemaining() {
+        return currentCharge / (maxCharge * 100.0f);
+    }
+        
+    void drive(float km) {
+        currentCharge -= (km/100) * engineEffeciency;
+    }
 
 };
 

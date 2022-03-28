@@ -9,30 +9,7 @@
 
 using namespace std;
 
-ElectricVehicle::ElectricVehicle(float currentCharge, float engineEffeciency) {
-    this->currentCharge = currentCharge;
-    this->engineEffeciency = engineEffeciency;
-}
 
-ElectricVehicle::ElectricVehicle() {
-    
-}
-    
-ElectricVehicle::~ElectricVehicle() {
-    cout << "In Electric Vehicle Destructor" << endl;
-}
-    
-float ElectricVehicle::calculateRange() {
-    return (currentCharge * 100) / engineEffeciency;
-}
-    
-float ElectricVehicle::percentEnergyRemaining() {
-    return currentCharge / (maxCharge * 100.0f);
-}
-    
-void ElectricVehicle::drive(float km) {
-    currentCharge -= (km/100) * engineEffeciency;
-}
    
 
 
