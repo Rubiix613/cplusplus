@@ -27,7 +27,7 @@ float GasolineVehicle::calculateRange() {
 }
     
 float GasolineVehicle::percentEnergyRemaining() {
-    return currentGasoline / (maxGasoline * 100);
+    return currentGasoline / (maxGasoline * 100.0f);
 }
     
 void GasolineVehicle::drive(float km) {

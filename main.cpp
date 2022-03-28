@@ -1,5 +1,5 @@
 //
-//  main.cpp
+//  main.cpp UPDATED
 //  Lab01
 //
 //  Created by Adam Di Cioccio on 2022-01-24.
@@ -21,13 +21,13 @@ Vehicle* testVehicle(Vehicle *pVehicle, const char* vehicleName) {
 
 int main(int argc, char **argv) {
     //50L of gas, 7.1 L/100km
-    //delete testVehicle( new GasolineVehicle(25, 3.55), "Corolla");
+    delete testVehicle( new GasolineVehicle(25, 3.55), "Corolla");
     
     //42 L of gas, 4.3 L/100km, 8.8kWh, 22 kWh/100km
-    //delete testVehicle( new HybridVehicle(42, 4.3, 8.8, 22.0), "Prius" );
+    delete testVehicle( new HybridVehicle(42, 4.3, 8.8, 22.0), "Prius");
     
     //75 kWh, 16 kWh/100km
-    //delete testVehicle( new ElectricVehicle(75, 16), "Tesla 3");
+    delete testVehicle( new ElectricVehicle(75, 16), "Tesla 3");
     return 0;
     
 }

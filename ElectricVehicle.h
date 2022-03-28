@@ -9,10 +9,12 @@
 
 class ElectricVehicle : virtual public Vehicle {
 private:
-    float currentCharge;
-    float maxCharge = 75;
+    
     
 public:
+    float currentCharge;
+    float maxCharge = 125;
+    
     ElectricVehicle(float currentCharge, float engineEffeciency);
     
     ElectricVehicle();

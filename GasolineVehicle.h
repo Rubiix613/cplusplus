@@ -9,10 +9,11 @@
 
 class GasolineVehicle : virtual public Vehicle {
 private:
-    float currentGasoline;
-    float maxGasoline = 50;
     
 public:
+    float currentGasoline;
+    float maxGasoline = 55;
+    
     GasolineVehicle(float currentGasoline, float engineEffeciency);
     
     GasolineVehicle();

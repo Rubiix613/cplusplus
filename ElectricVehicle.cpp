@@ -27,7 +27,7 @@ float ElectricVehicle::calculateRange() {
 }
     
 float ElectricVehicle::percentEnergyRemaining() {
-    return currentCharge / (maxCharge * 100);
+    return currentCharge / (maxCharge * 100.0f);
 }
     
 void ElectricVehicle::drive(float km) {

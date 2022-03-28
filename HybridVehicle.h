@@ -10,10 +10,11 @@
 
 class HybridVehicle : public ElectricVehicle, public GasolineVehicle {
 private:
-    float currentEnergy, maxEnergy, electricEffeciency, gasEffeciency;
+    float currentEnergy, electricEffeciency, gasEffeciency;
+    float maxEnergy = 120;
     
 public:
-    HybridVehicle(float maxGasoline, float gasEffeciency, float maxCharge, float electricEffeciency);
+    HybridVehicle(float currentGasoline, float gasEffeciency, float currentCharge, float electricEffeciency);
     
     HybridVehicle();
     
