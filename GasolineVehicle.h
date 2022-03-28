@@ -12,7 +12,7 @@ private:
     
 public:
     float currentGasoline;
-    float maxGasoline = 55;
+    float maxGasoline;
     
     GasolineVehicle(float currentGasoline, float engineEffeciency);
     

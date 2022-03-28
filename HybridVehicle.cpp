@@ -17,6 +17,7 @@ HybridVehicle::HybridVehicle(float currentGasoline, float gasEffeciency, float c
     this->electricEffeciency = electricEffeciency;
     
     this->currentEnergy = (currentGasoline+currentCharge);
+    this->maxEnergy = (currentGasoline+currentCharge);
 }
 
 HybridVehicle::HybridVehicle() {
@@ -32,7 +33,7 @@ float HybridVehicle::calculateRange() {
 }
     
 float HybridVehicle::percentEnergyRemaining() {
-    return currentEnergy / (maxEnergy * 100.0f);
+    return (currentEnergy / maxEnergy) * 100.0f;
 }
     
 void HybridVehicle::drive(float km) {

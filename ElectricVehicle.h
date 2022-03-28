@@ -13,7 +13,7 @@ private:
     
 public:
     float currentCharge;
-    float maxCharge = 125;
+    float maxCharge;
     
     ElectricVehicle(float currentCharge, float engineEffeciency);
     

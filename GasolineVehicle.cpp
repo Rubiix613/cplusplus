@@ -12,6 +12,8 @@ using namespace std;
 GasolineVehicle::GasolineVehicle(float currentGasoline, float engineEffeciency) {
     this->currentGasoline = currentGasoline;
     this->engineEffeciency = engineEffeciency;
+    
+    this->maxGasoline = currentGasoline;
 }
 
 GasolineVehicle::GasolineVehicle() {
@@ -27,7 +29,7 @@ float GasolineVehicle::calculateRange() {
 }
     
 float GasolineVehicle::percentEnergyRemaining() {
-    return currentGasoline / (maxGasoline * 100.0f);
+    return (currentGasoline / maxGasoline) * 100.0f;
 }
     
 void GasolineVehicle::drive(float km) {
